@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Annual Performance Appraisal Form (FPAS)</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 12pt;
+      background: #e8e8e8;
+      color: #000;
+      padding: 20px 10px;
+    }
+
+    .page {
+      background: #fff;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 30px;
+      padding: 18mm 18mm 18mm 22mm;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    /* ---- Header ---- */
+    .header-title {
+      text-align: center;
+      font-size: 16pt;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 6px;
+    }
+    .form-title {
+      text-align: center;
+      font-size: 13pt;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+    .form-title input.yr {
+      width: 110px;
+      border: none;
+      border-bottom: 1.5px solid #000;
+      font-size: 13pt;
+      font-family: inherit;
+      font-weight: bold;
+      text-align: center;
+      background: transparent;
+      outline: none;
+    }
+
+    /* ---- Info Box ---- */
+    .info-box {
+      border: 1px solid #000;
+      padding: 8px 14px;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 20px;
+      font-size: 11pt;
+    }
+    .info-box p { line-height: 1.9; display: flex; align-items: baseline; gap: 4px; }
+    .info-box input {
+      flex: 1;
+      border: none;
+      border-bottom: 1.5px solid #000;
+      font-family: inherit;
+      font-size: 11pt;
+      background: transparent;
+      outline: none;
+      min-width: 0;
+    }
+
+    /* ---- Part Headings ---- */
+    .part-heading {
+      font-size: 13pt;
+      font-weight: bold;
+      text-decoration: underline;
+      margin: 16px 0 8px 0;
+    }
+    .section-heading-inner {
+      font-size: 11.5pt;
+      font-weight: bold;
+      background: #d9e1f2;
+      border: 1px solid #000;
+      padding: 5px 10px;
+      margin-top: 12px;
+      margin-bottom: 0;
+    }
+
+    /* ---- Tables ---- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5pt;
+      margin-bottom: 12px;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 4px 6px;
+      vertical-align: middle;
+    }
+    thead th {
+      background: #bdd7ee;
+      font-weight: bold;
+      text-align: center;
+      vertical-align: middle;
+    }
+    td.sl { text-align: center; width: 38px; }
+    td.maxscore { text-align: center; width: 75px; }
+    td.remarks-col { font-size: 9.5pt; width: 185px; text-align: center; vertical-align: middle; }
+    td.remarks-col textarea.cell-input {
+      width: 100%;
+      border: none;
+      font-family: inherit;
+      font-size: 9.5pt;
+      background: transparent;
+      outline: none;
+      padding: 1px 2px;
+      resize: none;
+      text-align: center;
+      line-height: 1.25;
+      box-sizing: border-box;
+      display: block;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    td.remarks-col textarea.cell-input:focus { border: none; outline: none; background: transparent; }
+    td.remarks-col textarea.cell-input::placeholder {
+      font-style: italic;
+      color: #555;
+      font-size: 9.5pt;
+      text-align: center;
+      white-space: pre-wrap;
+    }
+    td input.cell-input::placeholder { color: #777; }
+
+    /* editable cells */
+    td input.cell-input {
+      width: 100%;
+      border: none;
+      font-family: inherit;
+      font-size: 10.5pt;
+      background: transparent;
+      outline: none;
+      padding: 1px 2px;
+    }
+    td input.cell-input:focus { border: none; outline: none; background: transparent; }
+    td.score-input { text-align: center; width: 75px; }
+    td.score-input input {
+      width: 100%;
+      border: none;
+      font-family: inherit;
+      font-size: 10.5pt;
+      text-align: center;
+      background: transparent;
+      outline: none;
+    }
+    td.score-input input:focus { border: none; outline: none; background: transparent; }
+    @keyframes scoreCapPulse {
+      0% { background-color: rgba(211, 47, 47, 0.25); }
+      100% { background-color: transparent; }
+    }
+    .score-capped {
+      animation: scoreCapPulse 0.9s ease-out;
+    }
+
+    /* ---- Part C/D headings & textareas ---- */
+    .h3-heading {
+      font-size: 12pt;
+      font-weight: bold;
+      margin-top: 14px;
+      margin-bottom: 4px;
+      text-decoration: underline;
+    }
+    textarea.write-area {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #999;
+      min-height: 60px;
+      margin: 4px 0 10px 0;
+      font-family: inherit;
+      font-size: 11pt;
+      resize: none;
+      padding: 4px 2px;
+      outline: none;
+      background: transparent;
+    }
+    textarea.write-area:focus { border-bottom: 1.5px solid #1e4e8c; background: transparent; }
+
+    /* ---- Scoring Table ---- */
+    .scoring-head th { background: #fce4d6; }
+    .total-row td { font-weight: bold; background: #e2efda; }
+    .grade-head th { background: #ffe699; }
+
+    /* ---- FPI ---- */
+    .fpi-box {
+      border: 1px solid #000;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 11pt;
+    }
+    .fpi-formula { font-style: italic; }
+
+    .wt-head th { background: #e2efda; }
+
+    /* ---- Signature ---- */
+    .sig-line {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 11.5pt;
+      border-top: 1px solid #aaa;
+      padding-top: 8px;
+    }
+
+    /* ---- Toolbar ---- */
+    .no-print {
+      text-align: center;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .no-print button {
+      background: #1e4e8c;
+      color: #fff;
+      border: none;
+      padding: 10px 28px;
+      font-size: 12pt;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .no-print button:hover { background: #163970; }
+    .no-print button.secondary { background: #4a7c59; }
+    .no-print button.secondary:hover { background: #355c40; }
+
+    hr.divider { border: none; border-top: 1px solid #bbb; margin: 14px 0; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; margin: 0; padding: 14mm 14mm 14mm 18mm; page-break-after: always; }
+      .no-print, #score-toast { display: none !important; }
+      td input.cell-input, td input, td.score-input input, td.remarks-col textarea.cell-input {
+        border: none !important; background: transparent;
+      }
+      .form-title input.yr, .info-box input {
+        border: none; border-bottom: 1px solid #000; background: transparent;
+      }
+      textarea.write-area { border: 1px solid #000; background: transparent; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="no-print">
+  <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+  <button class="secondary" onclick="calcTotals()">🔢 Calculate Scores</button>
+</div>
+
+<!-- ============================================================ PAGE 1 -->
+<div class="page">
+  <div class="header-title">Faculty Performance Appraisal System (FPAS)</div>
+  <div class="form-title">Faculty Annual Performance Appraisal Form &nbsp;( Academic year :&nbsp;
+    <input class="yr" id="acad_year" type="text" placeholder="20__-20__">
+    &nbsp;)
+  </div>
+
+  <!-- Info Box -->
+  <div class="info-box">
+    <p>Name of Faculty: <input id="ib_name" type="text" placeholder="Enter name"></p>
+    <p>Employee ID: <input id="ib_empid" type="text" placeholder="Enter ID"></p>
+    <p>Designation: <input id="ib_desig" type="text" placeholder="Enter designation"></p>
+    <p>Department: <input id="ib_dept" type="text" placeholder="Enter department"></p>
+    <p>Date of Joining: <input id="ib_doj" type="text" placeholder="DD/MM/YYYY"></p>
+    <p>Specialization: <input id="ib_spec" type="text" placeholder="Enter specialization"></p>
+    <p style="grid-column:1/-1;">Assessment Period: From&nbsp;
+      <input type="text" style="width:110px;" placeholder="MM/YYYY">
+      &nbsp;To&nbsp;
+      <input type="text" style="width:110px;" placeholder="MM/YYYY">
+    </p>
+  </div>
+
+  <!-- PART A -->
+  <div class="part-heading">PART A – GENERAL INFORMATION</div>
+  <table>
+    <thead>
+      <tr><th style="width:38px;"></th><th>Particulars</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="sl">1</td><td>Name of Faculty</td><td><input class="cell-input" type="text" placeholder="Enter name"></td></tr>
+      <tr><td class="sl">2</td><td>Designation</td><td><input class="cell-input" type="text" placeholder="Enter designation"></td></tr>
+      <tr><td class="sl">3</td><td>Department</td><td><input class="cell-input" type="text" placeholder="Enter department"></td></tr>
+      <tr><td class="sl">4</td><td>Qualification</td><td><input class="cell-input" type="text" placeholder="Enter qualification"></td></tr>
+      <tr><td class="sl">5</td><td>Experience</td><td><input class="cell-input" type="text" placeholder="e.g. 5 years"></td></tr>
+      <tr><td class="sl">6</td><td>Area of Specialization</td><td><input class="cell-input" type="text" placeholder="Enter specialization"></td></tr>
+      <tr><td class="sl">7</td><td>Courses Handled</td><td><input class="cell-input" type="text" placeholder="List courses"></td></tr>
+      <tr><td class="sl">8</td><td>Number of Subjects Taught</td><td><input class="cell-input" type="text" placeholder="Enter number"></td></tr>
+      <tr><td class="sl">9</td><td>Contact Hours per Week</td><td><input class="cell-input" type="text" placeholder="Enter hours"></td></tr>
+      <tr><td class="sl">10</td><td>Additional Responsibilities</td><td><input class="cell-input" type="text" placeholder="Enter responsibilities"></td></tr>
+    </tbody>
+  </table>
+
+  <!-- PART B -->
+  <div class="part-heading">PART B – FACULTY CONTRIBUTION ON VARIOUS ACTIVITIES</div>
+  <div class="section-heading-inner">1. ACADEMIC CONTRIBUTION (Maximum Marks: 150)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38px;">Sl. No</th>
+        <th>Academic Activities</th>
+        <th style="width:75px;">Max score</th>
+        <th style="width:90px;">Score Awarded</th>
+        <th style="width:185px;">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sl">1</td>
+        <td>Subject handling and syllabus completion: No. of subjects handled and No. of Students credit hours.(up to 540 credit hours 0 to 5 points in a linear scale); Credit hours= no. of students in the class x credit of the course</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b1_1" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">2</td>
+        <td>Preparation of lesson plans/course files</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b1_2" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl" rowspan="6">3</td>
+        <td><strong>Innovative teaching methodologies adopted</strong></td>
+        <td class="maxscore"></td>
+        <td class="score-input"></td>
+        <td class="remarks-col"></td>
+      </tr>
+      <tr>
+        <td>Blended Learning approach practiced :<br>Google Classroom, Role play, Group Discussion, Quiz, Chart Presentation, Hot seat, Any others-Specify<br>(Documentary evidence to be submitted)</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b1_3a" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td>No. of assignments given to make the students to think and analyse (mention the topics).</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b1_3b" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum  2  per&#10;subject are  mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td>No. of Special Lectures delivered and Topics of the lecture.</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b1_3c" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum  2  per&#10;subject are  expected."></textarea></td>
+      </tr>
+      <tr>
+        <td>No. of Industrial visit arranged related with their subject.</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b1_3d" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum  1  per faculty&#10;is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td>No. of Guest/Expert Lectures related with their subject or domains conducted.</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b1_3e" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum  1  per faculty&#10;are  expected."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">&nbsp;</td>
+        <td>Projects based/ Problem based teaching followed in the subjects handled by the faculty.</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b1_3f" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">4</td>
+        <td>Student feedback performance</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b1_4" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="To be More than 4.0"></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">5</td>
+        <td>Development of course materials/e-content and hosted in the institute website/LMS platform or YouTube</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b1_5" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 2 per faculty&#10;are mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">6</td>
+        <td>Preparation of question bank/assignment/manual</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b1_6" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">7</td>
+        <td>Conduct of remedial/coaching classes and support for slow learners.</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b1_7" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl" rowspan="3">8</td>
+        <td><strong>Result analysis and academic performance</strong></td>
+        <td class="maxscore"></td>
+        <td class="score-input"></td>
+        <td class="remarks-col"></td>
+      </tr>
+      <tr>
+        <td>University Exam - Pass percentage produced.</td>
+        <td class="maxscore">20</td>
+        <td class="score-input"><input type="number" min="0" max="20" class="score b1_8a" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 90%&#10;expected."></textarea></td>
+      </tr>
+      <tr>
+        <td>No. of 'S' Grades produced in their subject</td>
+        <td class="maxscore">25</td>
+        <td class="score-input"><input type="number" min="0" max="25" class="score b1_8b" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 10% of the students&#10;are mandatory in a subject."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">9</td>
+        <td>Participation in curriculum development</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b1_9" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">10</td>
+        <td>NBA/NAAC/Accreditation documentation support</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b1_10" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">11</td>
+        <td>Laboratory development and maintenance</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b1_11" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ PAGE 2 -->
+<div class="page">
+  <div class="section-heading-inner">2. STUDENT CENTRIC ACTIVITIES (Maximum Marks: 100)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38px;">Sl. No</th>
+        <th>Student Centric Contributions</th>
+        <th style="width:75px;">Max Score</th>
+        <th style="width:90px;">Score Awarded</th>
+        <th style="width:185px;">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sl">1</td>
+        <td>Mentoring/Counselling activities and its impact<br>(to be completed the course with good CGPA and good Placement, Entrepreneurship)</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b2_1" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 10 students mentoring per faculty&#10;in a sem mandatory. Impact to be visible."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">2</td>
+        <td>Role as a Class advisor and contribution towards performance improvement of the students.</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b2_2" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">3</td>
+        <td>Student project guidance</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b2_3" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 2 per faculty&#10;are mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">4</td>
+        <td>Placement and internship support:<br>Number and details of Placement related activities/dreams related / placement assistance, in which faculty involved for making the students getting Placements.</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b2_4" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 2 per faculty&#10;in a sem are mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">5</td>
+        <td>Organization of student seminars/workshops: Number of Internal workshops conducted and workshop with external experts arranged with details.</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b2_5" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per faculty Spl. group mandatory.&#10;More efforts get max. credit."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">6</td>
+        <td>Coaching for competitive examinations:<br>Number of Online courses/Certification courses related to their domain facilitated for the students and guidance for competitive Exam with details, support for bright students.</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b2_6" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum  1  per faculty&#10;is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">7</td>
+        <td>Student club/professional society activities</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b2_7" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum  1  per faculty&#10;is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">8</td>
+        <td>Support for co-curricular activities:<br>Number of students guided for participation / achievements in technical competitions (or) No. of competitions in which you have been involved in providing guidance to the students. (not limited to Symposium only)</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b2_8" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 5 students per&#10;faculty is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">9</td>
+        <td>Support for extracurricular activities<br>Number of students guided for participation in sports, social activities, UBA etc.</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b2_9" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 5 students per&#10;faculty is mandatory."></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading-inner">3. FACULTY SELF-DEVELOPMENT INITIATIVES (Maximum Marks: 75)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38px;">Sl. No</th>
+        <th>Self Development Activities</th>
+        <th style="width:75px;">Max Score</th>
+        <th style="width:90px;">Score Awarded</th>
+        <th style="width:185px;">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sl">1</td>
+        <td>Participation in FDP/STTP/Workshop:<br>Number of conference /seminars /workshops/FDP to be attended related with their domain with details:</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b3_1" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per faculty in a sem mandatory&#10;(Preferably outside state in reputed inst)."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">2</td>
+        <td>Online certification courses completed:<br>Number of certification to be completed by the faculty (NPTEL, Coursera, Edx., Udemy etc.)</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b3_2" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per faculty in a sem is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">3</td>
+        <td>Professional membership activities</td>
+        <td class="maxscore">05</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b3_3" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per faculty in a sem is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">4</td>
+        <td>Skill enhancement programmes attended</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b3_4" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per faculty in a sem is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">5</td>
+        <td>Industry training/consultancy exposure</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b3_5" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per faculty in a sem is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">6</td>
+        <td>New technology/tools learned</td>
+        <td class="maxscore">05</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b3_6" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per faculty in a sem is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">7</td>
+        <td>Contribution to knowledge sharing sessions: Number of Industries/ reputed academic institutions to be visited to deliver the Expert lecture or conducting workshop or Training.</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b3_7" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per faculty in a sem is mandatory."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">8</td>
+        <td>Higher studies/research registration</td>
+        <td class="maxscore">05</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b3_8" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ PAGE 3 -->
+<div class="page">
+  <div class="section-heading-inner">4. RESEARCH AND DEVELOPMENT (Maximum Marks: 150)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38px;">Sl. No</th>
+        <th>Research &amp; Development Activities</th>
+        <th style="width:75px;">Max Score</th>
+        <th style="width:90px;">Score Awarded</th>
+        <th style="width:185px;">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sl" rowspan="2">1</td>
+        <td>Publications in SCI/Scopus journals:<br>Number of Publications</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b4_1a" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Min 2 per Prof/Asso.Prof & 1 per fac in sem mandatory.&#10;1st author 100%, 2nd author 50% credit."></textarea></td>
+      </tr>
+      <tr>
+        <td>Number of Publications related to the Students projects guided and applied for journals.</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b4_1b" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 2 per Prof/Asso.Prof &amp; 1 per&#10;faculty is mandatory in a year."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">2</td>
+        <td>Conference publications/presentations</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b4_2" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per Prof./ Asso.Prof/&#10;FSG is mandatory in a sem."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">3</td>
+        <td>Book/Book chapter publications/Copy Rights</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b4_3" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per Prof./ Asso.Prof/&#10;FSG is mandatory in a year."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">4</td>
+        <td>Funded projects/grants received</td>
+        <td class="maxscore">20</td>
+        <td class="score-input"><input type="number" min="0" max="20" class="score b4_4" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per Prof./ Asso.Prof/&#10;FSG is mandatory in a sem."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">5</td>
+        <td>Patent filed/published/granted</td>
+        <td class="maxscore">20</td>
+        <td class="score-input"><input type="number" min="0" max="20" class="score b4_5" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per Prof./ Asso.Prof/&#10;FSG is mandatory in a sem."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">6</td>
+        <td>Consultancy work undertaken</td>
+        <td class="maxscore">20</td>
+        <td class="score-input"><input type="number" min="0" max="20" class="score b4_6" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">7</td>
+        <td>Research guidance (UG/PG/PhD)</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b4_7" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">8</td>
+        <td>Research proposal submission/ Proposal for FDP</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b4_8" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per Prof./ Asso.Prof/&#10;FSG is mandatory in a sem."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">9</td>
+        <td>Product/prototype development</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b4_9" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per Prof./ Asso.Prof/&#10;FSG is mandatory in a sem."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">10</td>
+        <td>No. of EDP/TBI related initiatives taken by the faculty and support for students Start ups.</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b4_10" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per Prof./ Asso.Prof/&#10;FSG is mandatory in a sem."></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading-inner">5. EXTENSION ACTIVITIES (Maximum Marks: 50)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38px;">Sl. No</th>
+        <th>Department Activities</th>
+        <th style="width:75px;">Max Score</th>
+        <th style="width:90px;">Score Awarded</th>
+        <th style="width:185px;">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sl">1</td>
+        <td>Industry interaction initiatives:<br>Industry tie up- initiatives taken by the faculty (MoUs and other activities):</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b5_1" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Min 1 per Prof./Asso.Prof/faculty with&#10;&gt;5 yrs. Experience mandatory in a sem."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">2</td>
+        <td>No. of Industries coordinated for arranging in-plant training and Industry Projects.</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b5_2" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">3</td>
+        <td>No. of core industries with which initiatives taken for arranging Placements.</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b5_3" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">4</td>
+        <td>Social outreach/extension activities</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b5_4" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ PAGE 4 -->
+<div class="page">
+  <div class="section-heading-inner">6. DEPARTMENT CENTRIC ACTIVITIES (Maximum Marks: 75)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38px;">Sl. No</th>
+        <th>Department Activities</th>
+        <th style="width:75px;">Max Score</th>
+        <th style="width:90px;">Score Awarded</th>
+        <th style="width:185px;">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sl">1</td>
+        <td>Department event coordination:<br>Number of value added courses/ Training coordinated with details</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b6_1" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="2" placeholder="Minimum 1 per Prof / Asso.Prof&#10;is expected in a year."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">2</td>
+        <td>Timetable/lab schedule coordination</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b6_2" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">3</td>
+        <td>Department documentation work</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b6_3" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">4</td>
+        <td>Alumni interaction activities</td>
+        <td class="maxscore">5</td>
+        <td class="score-input"><input type="number" min="0" max="5" class="score b6_4" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">5</td>
+        <td>Department committee responsibilities</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b6_5" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">6</td>
+        <td>Contribution to departmental growth</td>
+        <td class="maxscore">20</td>
+        <td class="score-input"><input type="number" min="0" max="20" class="score b6_6" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">7</td>
+        <td>Any innovations/innovative methods followed in the department related to your assigned responsibilities</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b6_7" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading-inner">7. INSTITUTION CENTRIC ACTIVITIES (Maximum Marks: 125)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38px;">Sl. No</th>
+        <th>Institution Level Contributions</th>
+        <th style="width:75px;">Max Score</th>
+        <th style="width:90px;">Score Awarded</th>
+        <th style="width:185px;">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sl">1</td>
+        <td>Participation in institutional committees</td>
+        <td class="maxscore">20</td>
+        <td class="score-input"><input type="number" min="0" max="20" class="score b7_1" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">2</td>
+        <td>Contribution to NAAC/NBA/NIRF ranking</td>
+        <td class="maxscore">25</td>
+        <td class="score-input"><input type="number" min="0" max="25" class="score b7_2" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">3</td>
+        <td>Institutional event organization</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b7_3" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">5</td>
+        <td>Examination duties</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b7_5" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">6</td>
+        <td>Admission and promotional activities</td>
+        <td class="maxscore">20</td>
+        <td class="score-input"><input type="number" min="0" max="20" class="score b7_6" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">7</td>
+        <td>Contribution to institutional development</td>
+        <td class="maxscore">25</td>
+        <td class="score-input"><input type="number" min="0" max="25" class="score b7_7" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">8</td>
+        <td>Any special achievements/contributions</td>
+        <td class="maxscore">10</td>
+        <td class="score-input"><input type="number" min="0" max="10" class="score b7_8" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-heading-inner">8. ACHIEVEMENTS &amp; AWARDS (Maximum Marks: 50)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:38px;">Sl. No</th>
+        <th>Achievement/Award</th>
+        <th style="width:75px;">Max score</th>
+        <th style="width:90px;">Score Awarded</th>
+        <th style="width:185px;">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sl">1</td>
+        <td>Awards/Recognition Received</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b8_1" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">2</td>
+        <td>Special Contributions</td>
+        <td class="maxscore">20</td>
+        <td class="score-input"><input type="number" min="0" max="20" class="score b8_2" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="sl">3</td>
+        <td>Best Practices Introduced</td>
+        <td class="maxscore">15</td>
+        <td class="score-input"><input type="number" min="0" max="15" class="score b8_3" placeholder="0"></td>
+        <td class="remarks-col"><textarea class="cell-input" rows="1" placeholder="Remarks..."></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ PAGE 5 -->
+<div class="page">
+  <div class="part-heading">PART C – FACULTY SELF-ASSESSMENT</div>
+
+  <div class="h3-heading">Major Contributions During the Academic Year</div>
+  <textarea class="write-area" rows="4" placeholder="Describe your major contributions during this academic year..."></textarea>
+
+  <div class="h3-heading">Challenges Faced</div>
+  <textarea class="write-area" rows="4" placeholder="Describe the challenges faced during this academic year..."></textarea>
+
+  <div class="h3-heading">Goals for Next Academic Year</div>
+  <textarea class="write-area" rows="5" placeholder="State your goals and plans for the next academic year..."></textarea>
+
+  <hr class="divider">
+
+  <div class="part-heading">PART D – HOD ASSESSMENT &amp; REMARKS</div>
+
+  <div class="h3-heading">Strengths of Faculty</div>
+  <textarea class="write-area" rows="4" placeholder="HOD: Describe the strengths of the faculty member..."></textarea>
+
+  <div class="h3-heading">Areas for Improvement</div>
+  <textarea class="write-area" rows="4" placeholder="HOD: Describe areas where the faculty member can improve..."></textarea>
+
+  <div class="h3-heading">Recommendations</div>
+  <textarea class="write-area" rows="5" placeholder="HOD: Provide recommendations for this faculty member..."></textarea>
+</div>
+
+<!-- ============================================================ PAGE 6 -->
+<div class="page">
+  <div class="part-heading">PART E – FINAL SCORING</div>
+
+  <table id="scoring-table">
+    <thead>
+      <tr class="scoring-head">
+        <th>Category</th>
+        <th style="width:110px;">Maximum Marks</th>
+        <th style="width:110px;">Marks Awarded</th>
+        <th style="width:110px;">Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Academic Contribution</td><td class="maxscore">150</td>
+        <td class="score-input"><input type="number" id="e_ac" min="0" max="150" placeholder="0" oninput="calcPct(this,150,'pct_ac')"></td>
+        <td class="maxscore" id="pct_ac">—</td></tr>
+      <tr><td>Student Centric Activities</td><td class="maxscore">100</td>
+        <td class="score-input"><input type="number" id="e_sc" min="0" max="100" placeholder="0" oninput="calcPct(this,100,'pct_sc')"></td>
+        <td class="maxscore" id="pct_sc">—</td></tr>
+      <tr><td>Faculty Self Development</td><td class="maxscore">75</td>
+        <td class="score-input"><input type="number" id="e_sd" min="0" max="75" placeholder="0" oninput="calcPct(this,75,'pct_sd')"></td>
+        <td class="maxscore" id="pct_sd">—</td></tr>
+      <tr><td>Research &amp; Development</td><td class="maxscore">150</td>
+        <td class="score-input"><input type="number" id="e_rd" min="0" max="150" placeholder="0" oninput="calcPct(this,150,'pct_rd')"></td>
+        <td class="maxscore" id="pct_rd">—</td></tr>
+      <tr><td>Extension activities</td><td class="maxscore">50</td>
+        <td class="score-input"><input type="number" id="e_ext" min="0" max="50" placeholder="0" oninput="calcPct(this,50,'pct_ext')"></td>
+        <td class="maxscore" id="pct_ext">—</td></tr>
+      <tr><td>Department Centric Activities</td><td class="maxscore">75</td>
+        <td class="score-input"><input type="number" id="e_dc" min="0" max="75" placeholder="0" oninput="calcPct(this,75,'pct_dc')"></td>
+        <td class="maxscore" id="pct_dc">—</td></tr>
+      <tr><td>Institution Centric Activities</td><td class="maxscore">125</td>
+        <td class="score-input"><input type="number" id="e_ic" min="0" max="125" placeholder="0" oninput="calcPct(this,125,'pct_ic')"></td>
+        <td class="maxscore" id="pct_ic">—</td></tr>
+      <tr><td>Achievements and Awards</td><td class="maxscore">50</td>
+        <td class="score-input"><input type="number" id="e_aa" min="0" max="50" placeholder="0" oninput="calcPct(this,50,'pct_aa')"></td>
+        <td class="maxscore" id="pct_aa">—</td></tr>
+      <tr class="total-row">
+        <td><strong>Total</strong></td>
+        <td class="maxscore"><strong>700</strong></td>
+        <td class="maxscore" id="total_awarded"><strong>—</strong></td>
+        <td class="maxscore" id="total_pct"><strong>—</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="part-heading">PERFORMANCE GRADING</div>
+  <table>
+    <thead>
+      <tr class="grade-head">
+        <th>Score Range (Percentage)</th>
+        <th>Performance Index (GP)</th>
+        <th>Grade &amp; PI</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>90 – 100</td><td class="maxscore">10</td><td>Outstanding</td></tr>
+      <tr><td>80 – 89</td><td class="maxscore">08</td><td>Excellent</td></tr>
+      <tr><td>70 – 79</td><td class="maxscore">06</td><td>Very Good</td></tr>
+      <tr><td>60 – 69</td><td class="maxscore">04</td><td>Good</td></tr>
+      <tr><td>50 – 59</td><td class="maxscore">02</td><td>Satisfactory</td></tr>
+      <tr><td>Below 50</td><td class="maxscore">00</td><td>Needs Improvement</td></tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:12px; font-size:11pt;">The FPI is to be computed using the performance Indices (PI) of the six components and their weights. The P.I. of the six components are computed using the marks secured in various sub components and their weights. The details are given below.</p>
+
+  <p style="margin-top:8px; font-weight:bold; font-size:12pt;">Faculty Performance Index (FPI)</p>
+
+  <div class="fpi-box">
+    <p class="fpi-formula">
+      FPI &nbsp;= &nbsp;(W<sub>1.0</sub>&nbsp;*&nbsp;GP<sub>1</sub>) &nbsp;+&nbsp; (W<sub>2.0</sub>&nbsp;*&nbsp;GP<sub>2</sub>) &nbsp;+&nbsp; (W<sub>3.0</sub>&nbsp;*&nbsp;GP<sub>3</sub>) &nbsp;+&nbsp; (W<sub>4.0</sub>&nbsp;*&nbsp;GP<sub>4</sub>) &nbsp;+&nbsp; (W<sub>5.0</sub>&nbsp;*&nbsp;GP<sub>5</sub>) &nbsp;+&nbsp;
+      (W<sub>6.0</sub>&nbsp;*&nbsp;GP<sub>6</sub>) &nbsp;+&nbsp; (W<sub>7.0</sub>&nbsp;*&nbsp;GP<sub>7</sub>) &nbsp;+&nbsp; (W<sub>8.0</sub>&nbsp;*&nbsp;GP<sub>8</sub>)
+    </p>
+  </div>
+
+  <table style="margin-top:14px;">
+    <thead>
+      <tr class="wt-head">
+        <th style="width:50px;">Sl. No.</th>
+        <th>Parameters</th>
+        <th colspan="3" style="text-align:center;">Weightage</th>
+      </tr>
+      <tr class="wt-head">
+        <th>Sl. No.</th>
+        <th>Parameters</th>
+        <th style="width:80px;">AP</th>
+        <th style="width:80px;">SAP/ASP</th>
+        <th style="width:80px;">Prof</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="sl">1.</td><td>Academic</td><td class="maxscore">0.50</td><td class="maxscore">0.35</td><td class="maxscore">0.20</td></tr>
+      <tr><td class="sl">2.</td><td>Students development</td><td class="maxscore">0.10</td><td class="maxscore">0.15</td><td class="maxscore">0.15</td></tr>
+      <tr><td class="sl">3.</td><td>Self development</td><td class="maxscore">0.10</td><td class="maxscore">0.10</td><td class="maxscore">0.05</td></tr>
+      <tr><td class="sl">4.</td><td>R&amp;D activities</td><td class="maxscore">0.10</td><td class="maxscore">0.15</td><td class="maxscore">0.20</td></tr>
+      <tr><td class="sl">5.</td><td>Extension activities</td><td class="maxscore">0.05</td><td class="maxscore">0.05</td><td class="maxscore">0.10</td></tr>
+      <tr><td class="sl">6.</td><td>Department Development</td><td class="maxscore">0.10</td><td class="maxscore">0.10</td><td class="maxscore">0.10</td></tr>
+      <tr><td class="sl">7.</td><td>Institution development</td><td class="maxscore">0.025</td><td class="maxscore">0.05</td><td class="maxscore">0.20</td></tr>
+      <tr><td class="sl">8.</td><td>Awards and achievements</td><td class="maxscore">0.025</td><td class="maxscore">0.05</td><td class="maxscore">0.05</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sig-line">
+    <span>Faculty</span>
+    <span>HoD</span>
+    <span>Principal</span>
+  </div>
+</div>
+
+<script>
+  let toastTimeout;
+  function showScoreToast(max) {
+    let toast = document.getElementById('score-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'score-toast';
+      toast.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#c62828;color:#fff;padding:10px 18px;border-radius:6px;font-family:inherit;font-size:11pt;font-weight:bold;box-shadow:0 4px 16px rgba(0,0,0,0.3);z-index:99999;transition:opacity 0.25s ease;opacity:0;pointer-events:none;';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = '⚠️ Awarded score cannot exceed max score of ' + max;
+    toast.style.opacity = '1';
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => { toast.style.opacity = '0'; }, 2000);
+  }
+
+  function validateScoreInput(input) {
+    const maxAttr = input.getAttribute('max');
+    if (!maxAttr) return;
+    const max = parseFloat(maxAttr);
+    const minAttr = input.getAttribute('min');
+    const min = minAttr !== null ? parseFloat(minAttr) : 0;
+
+    if (input.value !== '') {
+      const val = parseFloat(input.value);
+      if (!isNaN(val)) {
+        if (val > max) {
+          input.value = max;
+          input.classList.remove('score-capped');
+          void input.offsetWidth;
+          input.classList.add('score-capped');
+          showScoreToast(max);
+        } else if (val < min) {
+          input.value = min;
+        }
+      }
+    }
+  }
+
+  // Strictly only allow numbers (0-9) and navigation keys in score inputs
+  document.addEventListener('keydown', function(e) {
+    if (e.target && e.target.tagName === 'INPUT' && (e.target.type === 'number' || e.target.classList.contains('score'))) {
+      const allowedKeys = ['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Enter', 'Escape', 'Home', 'End'];
+      if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+        return;
+      }
+      // Only allow numeric digits 0-9 and at most one decimal point
+      if (!/^[0-9]$/.test(e.key) && !(e.key === '.' && !e.target.value.includes('.'))) {
+        e.preventDefault();
+      }
+    }
+  });
+
+  // Block pasting anything that is not a valid number
+  document.addEventListener('paste', function(e) {
+    if (e.target && e.target.tagName === 'INPUT' && (e.target.type === 'number' || e.target.classList.contains('score'))) {
+      const pasteData = (e.clipboardData || window.clipboardData).getData('text');
+      if (!/^\d*\.?\d*$/.test(pasteData.trim())) {
+        e.preventDefault();
+      }
+    }
+  });
+
+  document.addEventListener('input', function(e) {
+    if (e.target && e.target.tagName === 'INPUT' && e.target.type === 'number') {
+      validateScoreInput(e.target);
+    }
+  });
+
+  document.addEventListener('change', function(e) {
+    if (e.target && e.target.tagName === 'INPUT' && e.target.type === 'number') {
+      validateScoreInput(e.target);
+    }
+  });
+
+  document.addEventListener('blur', function(e) {
+    if (e.target && e.target.tagName === 'INPUT' && e.target.type === 'number') {
+      validateScoreInput(e.target);
+    }
+  }, true);
+
+  function calcPct(input, max, pctId) {
+    validateScoreInput(input);
+    const val = parseFloat(input.value);
+    const pctEl = document.getElementById(pctId);
+    if (!isNaN(val) && val >= 0 && val <= max) {
+      pctEl.textContent = (val / max * 100).toFixed(1) + '%';
+    } else {
+      pctEl.textContent = '—';
+    }
+    calcGrandTotal();
+  }
+
+  function calcGrandTotal() {
+    const ids = ['e_ac','e_sc','e_sd','e_rd','e_ext','e_dc','e_ic','e_aa'];
+    let total = 0; let allFilled = true;
+    ids.forEach(id => {
+      const v = parseFloat(document.getElementById(id).value);
+      if (!isNaN(v)) total += v; else allFilled = false;
+    });
+    const totalEl = document.getElementById('total_awarded');
+    const pctEl = document.getElementById('total_pct');
+    if (total > 0 || allFilled) {
+      totalEl.innerHTML = '<strong>' + total + '</strong>';
+      pctEl.innerHTML = '<strong>' + (total / 700 * 100).toFixed(1) + '%</strong>';
+    }
+  }
+
+  function calcTotals() {
+    // Section groups: [classPrefix, maxTotal, targetInputId, targetMaxId]
+    const sections = [
+      { classes: ['b1_1','b1_2','b1_3a','b1_3b','b1_3c','b1_3d','b1_3e','b1_3f','b1_4','b1_5','b1_6','b1_7','b1_8a','b1_8b','b1_9','b1_10','b1_11'], max: 150, target: 'e_ac' },
+      { classes: ['b2_1','b2_2','b2_3','b2_4','b2_5','b2_6','b2_7','b2_8','b2_9'], max: 100, target: 'e_sc' },
+      { classes: ['b3_1','b3_2','b3_3','b3_4','b3_5','b3_6','b3_7','b3_8'], max: 75, target: 'e_sd' },
+      { classes: ['b4_1a','b4_1b','b4_2','b4_3','b4_4','b4_5','b4_6','b4_7','b4_8','b4_9','b4_10'], max: 150, target: 'e_rd' },
+      { classes: ['b5_1','b5_2','b5_3','b5_4'], max: 50, target: 'e_ext' },
+      { classes: ['b6_1','b6_2','b6_3','b6_4','b6_5','b6_6','b6_7'], max: 75, target: 'e_dc' },
+      { classes: ['b7_1','b7_2','b7_3','b7_5','b7_6','b7_7','b7_8'], max: 125, target: 'e_ic' },
+      { classes: ['b8_1','b8_2','b8_3'], max: 50, target: 'e_aa' },
+    ];
+
+    const pctMap = { 'e_ac':'pct_ac','e_sc':'pct_sc','e_sd':'pct_sd','e_rd':'pct_rd','e_ext':'pct_ext','e_dc':'pct_dc','e_ic':'pct_ic','e_aa':'pct_aa' };
+
+    sections.forEach(sec => {
+      let total = 0;
+      sec.classes.forEach(cls => {
+        const el = document.querySelector('input.score.' + cls);
+        if (el) { const v = parseFloat(el.value); if (!isNaN(v)) total += v; }
+      });
+      total = Math.min(total, sec.max);
+      const targetEl = document.getElementById(sec.target);
+      targetEl.value = total;
+      const pctEl = document.getElementById(pctMap[sec.target]);
+      pctEl.textContent = (total / sec.max * 100).toFixed(1) + '%';
+    });
+    calcGrandTotal();
+    alert('Scores calculated and filled in Part E!');
+  }
+</script>
+
+</body>
+</html>
