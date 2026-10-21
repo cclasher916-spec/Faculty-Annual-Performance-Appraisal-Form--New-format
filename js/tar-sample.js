@@ -27,197 +27,197 @@
   },
   "entries": {
     "1": {
-      "evidence": "'O'b'j'e'c't' 'O'r'i'e'n't'e'd' 'P'r'o'g'r'a'm'm'i'n'g' '-'9'2'.'9'8'%'\n'L'i'n'u'x' 'P'r'o'g'r'a'm'm'i'n'g' ' '-' ' ' ' '9'4'.'6'4'%'\n'A'r't'i'f'i'c'i'a'l' 'I'n't'e'l'l'i'g'e'n'c'e' ' ' ' ' ' ' '-'9'8'.'2'4'%'\n'C'o'm'p'u't'e'r' 'O'r'g'a'n'i'z'a't'i'o'n' '&' 'A'r'c'h'i't'e'c't'u'r'e' '9'6'.'4'3'%'",
+      "evidence": "Object Oriented Programming -92.98%\nLinux Programming - 94.64%\nArtificial Intelligence -98.24%\nComputer Organization & Architecture 96.43%",
       "claimed": 20.0,
       "files": []
     },
     "2": {
-      "evidence": "'O'b'j'e'c't' 'O'r'i'e'n't'e'd' 'P'r'o'g'r'a'm'm'i'n'g' '-'1'\n'A'r't'i'f'i'c'i'a'l' 'I'n't'e'l'l'i'g'e'n'c'e' ' ' '-' ' ' ' '1'\n'C'o'm'p'u't'e'r' 'O'r'g'a'n'i'z'a't'i'o'n' '&' 'A'r'c'h'i't'e'c't'u'r'e' ' '-'1'",
+      "evidence": "Object Oriented Programming -1\nArtificial Intelligence - 1\nComputer Organization & Architecture -1",
       "claimed": 10.0,
       "files": []
     },
     "3": {
-      "evidence": "'R'o'l'e' 'p'l'a'y'\n'I'C'T' 'T'o'o'l's'-'N'e'a'r'p'o'd','M'e'n't'i'm'e't'e'r','K'a'h'o'o't'\n'C'h'a'r't' 'P'r'e's'e'n't'a't'i'o'n'\n'M'i'n'd' 'M'a'p'p'i'n'g'-'G'i't'm'i'n'd','D'r'a'w'.'i'o'",
+      "evidence": "Role play\nICT Tools-Nearpod,Mentimeter,Kahoot\nChart Presentation\nMind Mapping-Gitmind,Draw.io",
       "claimed": 15.0,
       "files": []
     },
     "4": {
-      "evidence": "'1'.'B'u'i'l'd' ' 'S'c'a'l'a'b'l'e' 'Q'u'a'n't'u'm' ' 'P'r'o'c'e's's'o'r' 's'y's't'e'm'\n'2'.'D'r'a'w' 'D'i's't'r'i'b'u't'e'd' 's'h'a'r'e'd' 'm'e'm'o'r'y' 'a'r'c'h'i't'e'c't'u'r'e'\n'3'.'A'n'a'l'y's'i's' 'o'f' 'G'e'n'e'r'a't'i'v'e' 'A'd'v'e'r's'i'a'l' 'N'e't'w'o'r'k'\n'4'.'A'r't'i'f'i'c'i'a'l' 'I'm'm'u'n'e' 's'y's't'e'm'\n'5' 'B'u'i'l'd'i'n'g' '.'L'i'n'u'x' 'E'm'b'e'd'd'e'd' 'S'y's't'e'm'\n'6'.'A'd'v'a'n'c'e'd' 'J'S'P' 'r'e'a'l' 't'i'm'e' ' 'a'p'p'l'i'c'a't'i'o'n'",
+      "evidence": "1.Build Scalable Quantum Processor system\n2.Draw Distributed shared memory architecture\n3.Analysis of Generative Adversial Network\n4.Artificial Immune system\n5 Building .Linux Embedded System\n6.Advanced JSP real time application",
       "claimed": 10.0,
       "files": []
     },
     "5": {
-      "evidence": "'1'.'A'I' 'i'n' 'p'r'e'c'i's'i'o'n' 'a'g'r'i'c'u'l't'u'r'e' 'a'n'd' 's'm'a'r't' 'h'e'a'l't'h'c'a'r'e' 'f'o'r' 's'o'c'i'e't'y'\n'2'.' 'M'e'd'i'c'a'l' 'I'm'a'g'i'n'g' 'a'n'd' 'V'i's'u'a'l'i'z'a't'i'o'n' 'u's'i'n'g' 'J'a'v'a'\n'3'.' 'R'o'l'e' 'o'f' 'L'i'n'u'x' 'i'n' 'E'd'u'c'a't'i'o'n'\n'4'.' 'S'u's't'a'i'n'a'b'l'e' 'R'e'c'y'c'l'i'n'g' 'G'r'e'e'n' 'D'i's'p'o's'a'l' 'o'f' 'C'o'm'p'u't'e'r's' 'a'n'd' 'D'i'g'i't'a'l' 'D'e'v'i'c'e's'",
+      "evidence": "1.AI in precision agriculture and smart healthcare for society\n2. Medical Imaging and Visualization using Java\n3. Role of Linux in Education\n4. Sustainable Recycling Green Disposal of Computers and Digital Devices",
       "claimed": 15.0,
       "files": []
     },
     "6": {
-      "evidence": "'1'.'M'i'c'r'o's'o'f't' ','B'a'n'g'a'l'o'r'e'\n'2'.'V'e'i' 'T'e'c'h'n'o'l'o'g'y','C'h'e'n'n'a'i'",
+      "evidence": "1.Microsoft ,Bangalore\n2.Vei Technology,Chennai",
       "claimed": 5.0,
       "files": []
     },
     "7": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "8": {
-      "evidence": "'1'.'I'n't'e'r'P'r'o'c'e's's' 'C'o'm'm'u'n'i'c'a't'i'o'n'\n'2'.'M'u'l't'i't'h'r'e'a'd'i'n'g'",
+      "evidence": "1.InterProcess Communication\n2.Multithreading",
       "claimed": 15.0,
       "files": []
     },
     "9": {
-      "evidence": "'1'.'C'o'r'a'l' 'R'e'e'f' 'P'o'l'l'u't'i'o'n' 'F'o'r'e'c'a's't'i'n'g' 'u's'i'n'g' 'M'u'l't'i'm'o'd'a'l' 'F'u's'i'o'n'\n'2'.'G'e's't'u'r'e' 't'o' 'T'e'x't' 'C'o'n'v'e'r's'i'o'n' 'C'N'N' 'P'o'w'e'r'e'd' 'f'r'a'm'e'w'o'r'k' 'f'o'r' 'S'i'g'n' 'L'a'n'g'u'a'g'e'\n'3'.' 'P'r'o'x'S'e'n's'e' ' 'A'l'g'o'r'i't'h'm' 'D'r'i'v'e'n' 'C'o'n't'a'c't'l'e's's' 'S'w'i't'c'h'i'n'g'\n'4'.' 'M'o'n'e'y' 'E'x'p'e'n's'e' 'T'r'a'c'k'e'r' 'S'm'a'r't' 'F'i'n'a'n'c'i'a'l' 'M'a'n'a'g'e'm'e'n't' 'S'y's't'e'm'\n'5'.' 'F'o'o'd' 'S'h'a'r'i'n'g' 'C'o'm'm'u'n'i't'y' 'P'l'a't'f'o'r'm' 'u's'i'n'g' 'M'a'c'h'i'n'e' 'L'e'a'r'n'i'n'g'\n'6'.' 'L'u'm'o's'e'n's'e' 'S'm'a'r't' 'M'o't'i'o'n' 'A'c't'i'v'a't'e'd' 'L'i'g'h't'i'n'g' 'S'y's't'e'm'\n'7'.' 'S'u's't'a'i'n'a'b'l'e' 'S'h'o'p'p'i'n'g' 'A's's'i's't'a'n't' 'S'y's't'e'm'",
+      "evidence": "1.Coral Reef Pollution Forecasting using Multimodal Fusion\n2.Gesture to Text Conversion CNN Powered framework for Sign Language\n3. ProxSense Algorithm Driven Contactless Switching\n4. Money Expense Tracker Smart Financial Management System\n5. Food Sharing Community Platform using Machine Learning\n6. Lumosense Smart Motion Activated Lighting System\n7. Sustainable Shopping Assistant System",
       "claimed": 20.0,
       "files": []
     },
     "10": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "11": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "12": {
-      "evidence": "'W'e'b' 'B'a's'e'd' 'F'r'a'm'e'w'o'r'k' 'D'J'a'n'g'o',' 'D'a't'a'n'e'r'd'z'",
+      "evidence": "Web Based Framework DJango, Datanerdz",
       "claimed": 10.0,
       "files": []
     },
     "13": {
-      "evidence": "'N'P'T'E'L'\n'1'.'I'n't'r'o'd'u'c't'i'o'n' 't'o' 'M'a'c'h'i'n'e' 'L'e'a'r'n'i'n'g'\n'2'.'A'I' 'I'N' 'H'u'm'a'n' 'R'e's'o'u'r'c'e' 'M'a'n'a'g'e'm'e'n't'",
+      "evidence": "NPTEL\n1.Introduction to Machine Learning\n2.AI IN Human Resource Management",
       "claimed": 10.0,
       "files": []
     },
     "14": {
-      "evidence": "'1'.'S'e'c'o'n'd' 'y'e'a'r' 's't'u'd'e'n't' 'p'a'r't'i'c'i'p'a't'e'd' 'i'n' 'N'a't'i'o'n'a'l' ' 'H'a'c'k'a't'h'o'n' '2'0'2'5' ' 'h'e'l'd' 'a't' 'A'c'h'a'r'y'a' 'c'o'l'l'e'g'e' 'o'f' 'e'n'g'i'n'e'e'r'i'n'g' 'a'n'd' 'T'e'c'h'n'o'l'o'g'y'\n'2'.'P'a'p'e'r' 'P'r'e's'e'n't'a't'i'o'n' 'h'e'l'd' 'a't' 'S'a'v'e'e't'h'a' 'E'n'g'i'n'e'e'r'i'n'g' 'C'o'l'l'e'g'e'.'\n'3'.'T'h'i'r'd' 'Y'e'a'r' 'S't'u'd'e'n't's' 'P'r'e's'e'n't'e'd' 'p'a'p'e'r' ' '1's't' 'I'n't'e'r'n'a't'i'o'n'a'l' 'C'o'n'c'l'a'v'e' 'o'n' 'S'u's't'a'i'n'n'o'v'a't'i'o'n' 'I'C'S' '1'.'0' 'b'y' 'M'V'I'T','P'u'd'u'c'h'e'r'r'y'.'",
+      "evidence": "1.Second year student participated in National Hackathon 2025 held at Acharya college of engineering and Technology\n2.Paper Presentation held at Saveetha Engineering College.\n3.Third Year Students Presented paper 1st International Conclave on Sustainnovation ICS 1.0 by MVIT,Puducherry.",
       "claimed": 20.0,
       "files": []
     },
     "15": {
-      "evidence": "'C'o'o'r'd'i'n'a't'e' 'M'o'c'k' 'I'n't'e'r'v'i'e'w' ' '&' 'T'e'c'h'n'i'c'a'l' 'S'e's's'i'o'n'",
+      "evidence": "Coordinate Mock Interview & Technical Session",
       "claimed": 20.0,
       "files": []
     },
     "16": {
-      "evidence": "'C'o'o'r'd'i'n'a't'e'd' 'I'n'-'p'l'a'n't' 'T'r'a'i'n'i'n'g'",
+      "evidence": "Coordinated In-plant Training",
       "claimed": 10.0,
       "files": []
     },
     "17": {
-      "evidence": "'I'I' 'Y'e'a'r' 'A' ' '-'1'4' 's't'u'd'e'n't's' '–'5' 'T'o'p'p'e'r'\n'I'I' 'Y'e'a'r' 'B' '-'1'4' 'S't'u'd'e'n't's' '-'3' 'T'o'p'p'e'r'",
+      "evidence": "II Year A -14 students –5 Topper\nII Year B -14 Students -3 Topper",
       "claimed": 20.0,
       "files": []
     },
     "18": {
-      "evidence": "'1'.'A'r't'i'f'i'c'i'a'l' 'I'n't'e'l'l'i'g'e'n'c'e' 'f'o'r' 'E'c'o'n'o'm'i'c's'-'N'P'T'E'L'\n'2'.'A'r't'i'f'i'c'i'a'l' 'I'n't'e'l'l'i'g'e'n'c'e'-'C'e'r't'i'p'o'r't'",
+      "evidence": "1.Artificial Intelligence for Economics-NPTEL\n2.Artificial Intelligence-Certiport",
       "claimed": 20.0,
       "files": []
     },
     "19": {
-      "evidence": "'1'.'A't't'e'n'd'e'd' 'A'T'A'L' 'A'c'a'd'e'm'y' 'F'D'P' 'o'n' '“'F'o'u'n'd'a't'i'o'n's' 'a'n'd' 'A'p'p'l'i'c'a't'i'o'n's' 'o'f' 'A'I' 'a'n'd' 'D'a't'a' 'S'c'i'e'n'c'e'”' 'f'r'o'm' ' '2'0't'h' 't'o' '2'5't'h' 'J'a'n'u'a'r'y' '2'0'2'5'.'\n'2'.' 'A't't'e'n'd'e'd' 'A'T'A'L' 'A'c'a'd'e'm'y' 'F'D'P' 'o'n' '“'G'e'n'e'r'a't'i'v'e' 'A'I':' 'T'e'c'h'n'i'q'u'e's',' 'T'o'o'l's' 'a'n'd' 'A'p'p'l'i'c'a't'i'o'n's'”' 'a't' 'N'I'T',' 'D'e'l'h'i' ' 'f'r'o'm' ' '3'n'd' 't'o' '8't'h' 'F'e'b'r'u'a'r'y' '2'0'2'5'.'\n'3'.'P'a'r't'i'c'i'p'a't'e'd' 'i'n' 'i'n' 'o'n'e' 'w'e'e'k' 'F'D'P' 'o'n' '“'A'p'p'l'i'c'a't'i'o'n' 'o'f' 'D'a't'a' 'S'c'i'e'n'c'e' 'A'n'a'l'y't'i'c's'”' 'c'o'n'd'u'c't'e'd' 'b'y' ' 'K'G' 'R'e'd'd'y' 'C'o'l'l'e'g'e' 'o'f' 'E'n'g'i'n'e'e'r'i'n'g' 'a'n'd' 'T'e'c'h'n'o'l'o'g'y',' 'T'e'l'a'n'g'a'n'a' 'o'n' '1's't' 'N'o'v' '2'0'2'4' 't'o' '6't'h' 'N'o'v' '2'0'2'4' '.'\n'4'.' 'A't't'e'n'd'e'd' 'P'D'P' 'o'n' '“'I'C'T' 'T'o'o'l's' 'f'o'r' 'I'n't'e'r'a'c't'i'v'e' 'T'e'a'c'h'i'n'g' '&' 'L'e'a'r'n'i'n'g'”' 'b'y' 'I'Q'A'C',' 'M'V'I'T' 'f'r'o'm' '2'2'n'd' 't'o' '2'7't'h' 'J'u'l' '2'0'2'4'.'\n'5'.'A't't'e'n'd'e'd' '5' 'D'a'y'’'s' 'o'n'l'i'n'e' 'F'D'P' 'o'n' '“'G'e'n' 'A'I' '&' 'C'h'a't' 'G'P'T' 'A'p'p'l'i'c'a't'i'o'n' 'i'n' 'I'n'd'u's't'r'y'”' 'C'o'n'd'u'c't'e'd' 'b'y' 'B'h'a'r't'i' 'V'i'd'y'a'p'e'e't'h' 'C'o'l'l'e'g'e' 'o'f' 'E'n'g'i'n'e'e'r'i'n'g',' 'P'u'n'e' ' 'f'r'o'm' '2'7't'h' 'J'a'n' 't'o' '3'1't'h's't' 'J'a'n' '2'0'2'5'.'\n'6'.'P'a'r't'i'c'i'p'a't'e'd' 'i'n' 'o'n'e' 'w'e'e'k' 'F'D'P' 'o'n' '“'E'm'e'r'g'i'n'g' 'T'r'e'n'd's' 'i'n' 'A'd'v'a'n'c'e'd' 'E'n'g'i'n'e'e'r'i'n'g' 'R'e's'e'a'r'c'h':'O'p'p'o'r't'u'n'i't'i'e's' 'a'n'd' 'C'h'a'l'l'e'n'g'e's'”' 'c'o'n'd'u'c't'e'd' 'b'y' ' 'S'r'e'e' 'S'a'k't'h'i' 'E'n'g'i'n'e'e'r'i'n'g' 'C'o'l'l'e'g'e','C'o'i'm'b'a't'o'r'e' 'o'n' '1's't' 'J'u'l'y' '2'0'2'4' 't'o' '6't'h' 'J'u'l'y' '2'0'2'4' '.'\n'7'.' 'P'a'r't'i'c'i'p'a't'e'd' 'i'n' 'o'n'e' 'w'e'e'k' 'V'i'r't'u'a'l' 'F'D'P' 'o'n' '“'T'r'a'n's'f'o'r'm'i'n'g' 'R'e's'e'a'r'c'h' 't'h'r'o'u'g'h' 'A'd'v'a'n'c'e'd' 'T'e'c'h'n'o'l'o'g'y'”' 'c'o'n'd'u'c't'e'd' 'b'y' ' 'S'R'M' 'I'n's't'i't'u't'e' 'o'f' 'S'c'i'e'n'c'e' 'a'n'd' 'T'e'c'h'n'o'l'o'g'y','C'h'e'n'n'a'i' 'o'n' '2'6't'h' 'J'a'n' '2'0'2'5' 't'o' '2'4't'h' 'J'a'n' '2'0'2'5' '.'\n'C'o'n'f'e'r'e'n'c'e's'\n'F'i'r's't' 'I'n't'e'r'n'a't'i'o'n'a'l' 'C'o'n'f'e'r'e'n'c'e' 'o'n' 'C'o'm'p'u't'e'r' 'V'i's'i'o'n',' 'C'o'm'm'u'n'i'c'a't'i'o'n' 'S'y's't'e'm's',' 'a'n'd' 'C'o'm'p'u't'a't'i'o'n'a'l' 'I'n't'e'l'l'i'g'e'n'c'e' '('C'V'C'N'C'E' '2'0'2'5')',' 'o'r'g'a'n'i's'e'd' 'b'y' 't'h'e' 'D'e'p'a'r't'm'e'n't' 'o'f' 'E'l'e'c't'r'o'n'i'c's' 'a'n'd' 'C'o'm'm'u'n'i'c'a't'i'o'n' 'E'n'g'i'n'e'e'r'i'n'g' 'a't' 'F'r'a'n'c'i's' 'X'a'v'i'e'r' 'E'n'g'i'n'e'e'r'i'n'g' 'C'o'l'l'e'g'e',' 'T'i'r'u'n'e'l'v'e'l'i',' 'w'a's' 'h'e'l'd' 'o'n' '0'8'–'0'9' 'M'a'y' '2'0'2'5' 'i'n' 'h'y'b'r'i'd' 'm'o'd'e'-'T'a'y'l'o'r' ' '&' ' 'F'r'a'n'c'i's' ' 'T'w'o' 'p'a'p'e'r's' 'P'u'b'l'i's'h' 'o'n' 'D'e'c'e'm'b'e'r' '2'0'2'5'\n'1'.'C'o'r'a'l' 'R'e'e'f' 'P'o'l'l'u't'i'o'n' 'F'o'r'e'c'a's't'i'n'g' 'u's'i'n'g' 'M'u'l't'i'm'o'd'a'l' 'F'u's'i'o'n'\n'2'.'G'e's't'u'r'e' 't'o' 'T'e'x't' 'C'o'n'v'e'r's'i'o'n' 'C'N'N' 'P'o'w'e'r'e'd' 'f'r'a'm'e'w'o'r'k' 'f'o'r' 'S'i'g'n' 'L'a'n'g'u'a'g'e' ' 'R'e'c'o'g'n'i't'i'o'n'",
+      "evidence": "1.Attended ATAL Academy FDP on “Foundations and Applications of AI and Data Science” from 20th to 25th January 2025.\n2. Attended ATAL Academy FDP on “Generative AI: Techniques, Tools and Applications” at NIT, Delhi from 3nd to 8th February 2025.\n3.Participated in in one week FDP on “Application of Data Science Analytics” conducted by KG Reddy College of Engineering and Technology, Telangana on 1st Nov 2024 to 6th Nov 2024 .\n4. Attended PDP on “ICT Tools for Interactive Teaching & Learning” by IQAC, MVIT from 22nd to 27th Jul 2024.\n5.Attended 5 Day’s online FDP on “Gen AI & Chat GPT Application in Industry” Conducted by Bharti Vidyapeeth College of Engineering, Pune from 27th Jan to 31thst Jan 2025.\n6.Participated in one week FDP on “Emerging Trends in Advanced Engineering Research:Opportunities and Challenges” conducted by Sree Sakthi Engineering College,Coimbatore on 1st July 2024 to 6th July 2024 .\n7. Participated in one week Virtual FDP on “Transforming Research through Advanced Technology” conducted by SRM Institute of Science and Technology,Chennai on 26th Jan 2025 to 24th Jan 2025 .\nConferences\nFirst International Conference on Computer Vision, Communication Systems, and Computational Intelligence (CVCNCE 2025), organised by the Department of Electronics and Communication Engineering at Francis Xavier Engineering College, Tirunelveli, was held on 08–09 May 2025 in hybrid mode-Taylor & Francis Two papers Publish on December 2025\n1.Coral Reef Pollution Forecasting using Multimodal Fusion\n2.Gesture to Text Conversion CNN Powered framework for Sign Language Recognition",
       "claimed": 10.0,
       "files": []
     },
     "20": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "21": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "22": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "23": {
-      "evidence": "'A'r't'i'f'i'c'i'a'l' 'I'n't'e'l'l'i'g'e'n'c'e' 'A'T'A'L' 'F'D'P' '“'R'e's'e'a'r'c'h' 'O'p'p'o'r't'u'n'i't'i'e's'\n'i'n' ' 'D'a't'a' 'S'c'i'e'n'c'e' 'a'n'd' 'D'a't'a' 'A'n'a'l'y't'i'c's'”' ' 'o'n' '2'0't'h' 'a'n'd' '2'5't'h' 'J'a'n'u'a'r'y' '2'0'2'5'.'",
+      "evidence": "Artificial Intelligence ATAL FDP “Research Opportunities\nin Data Science and Data Analytics” on 20th and 25th January 2025.",
       "claimed": 10.0,
       "files": []
     },
     "24": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "25": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "26": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "27": {
-      "evidence": "'P'r'o'x'S'e'n's'e' ' 'A'l'g'o'r'i't'h'm' 'D'r'i'v'e'n' 'C'o'n't'a'c't'l'e's's' 'S'w'i't'c'h'i'n'g'-'P'r'o'd'u'c't' 'P'a't'e'n't' 'F'i'l'e'd'",
+      "evidence": "ProxSense Algorithm Driven Contactless Switching-Product Patent Filed",
       "claimed": 15.0,
       "files": []
     },
     "28": {
-      "evidence": "'I'I'C' 'C'e'r't'i'f'i'c'a't'i'o'n' 'C'o'm'p'l'e't'e'd' ' 'o'n'\n'B'a's'i'c',' 'A'd'v'a'n'c'e'd',' 'R'e's'k'i'l'l'i'n'g'.'",
+      "evidence": "IIC Certification Completed on\nBasic, Advanced, Reskilling.",
       "claimed": 15.0,
       "files": []
     },
     "29": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "30": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "31": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "32": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "33": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "34": {
-      "evidence": "'1'.'I'n't'e'r'n's'h'i'p'\n'2'.'O'n'l'i'n'e' 'C'e'r't'i'f'i'c'a't'i'o'n's'\n'3'.'I'C'T' 'T'o'o'l's'",
+      "evidence": "1.Internship\n2.Online Certifications\n3.ICT Tools",
       "claimed": 15.0,
       "files": []
     },
     "35": {
-      "evidence": "'A's's'i's't'i'n'g' 'N'A'A'C' ' 'C'r'i't'e'r'i'a' '5'\n'D'e'p'a'r't'm'e'n't' 'B'O'S' 'M'e'm'b'e'r'\n'C'o'o'r'd'i'n'a't'e's' 'e'v'e'n't's' 'i'n' 'M'i't'i'l'e'n'c'e'",
+      "evidence": "Assisting NAAC Criteria 5\nDepartment BOS Member\nCoordinates events in Mitilence",
       "claimed": 20.0,
       "files": []
     },
     "36": {
-      "evidence": "'L'e'c't'u'r'e' 'v'i'd'e'o's' 'p'o's't'e'd' 'i'n' 'D'e'p'a'r't'm'e'n't' 'Y'o'u't'u'b'e' 'C'h'a'n'n'e'l'",
+      "evidence": "Lecture videos posted in Department Youtube Channel",
       "claimed": 20.0,
       "files": []
     },
     "37": {
-      "evidence": "'A'd'm'i's's'i'o'n' '-'2'",
+      "evidence": "Admission -2",
       "claimed": 10.0,
       "files": []
     },
     "38": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     },
     "39": {
-      "evidence": "'N'i'l'",
+      "evidence": "Nil",
       "claimed": 0,
       "files": []
     }

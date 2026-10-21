@@ -9,12 +9,12 @@
   color: #1e293b;
   background: #f8fafc;
   min-height: calc(100vh - 65px);
-  padding: 0 0 40px 0;
+  padding: 0 0 50px 0;
   box-sizing: border-box;
 }
 
 .tar-container {
-  max-width: 1240px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -28,7 +28,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 2px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
   padding: 12px 0;
   margin-bottom: 24px;
 }
@@ -44,7 +44,7 @@
 .tar-summary-score-group {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .tar-grand-score-box {
@@ -97,11 +97,11 @@
 }
 
 .tar-chip {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 12px;
+  padding: 5px 10px;
+  font-size: 12.5px;
   color: #334155;
   display: flex;
   align-items: center;
@@ -111,7 +111,10 @@
 }
 
 .tar-chip:hover {
-  background: #e2e8f0;
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+  transform: translateY(-1px);
 }
 
 .tar-chip .chip-name {
@@ -143,6 +146,17 @@
   transition: all 0.15s ease;
 }
 
+.tar-btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+}
+.tar-btn-sm:hover {
+  background: #f1f5f9;
+}
+
 .tar-btn-primary {
   background: #2563eb;
   color: #ffffff;
@@ -162,29 +176,13 @@
   border-color: #94a3b8;
 }
 
-.tar-btn-success {
-  background: #059669;
-  color: #ffffff;
-}
-.tar-btn-success:hover {
-  background: #047857;
-}
-
-.tar-btn-danger {
-  background: #ef4444;
-  color: #ffffff;
-}
-.tar-btn-danger:hover {
-  background: #dc2626;
-}
-
 /* --- Faculty Info Card --- */
 .tar-faculty-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   padding: 20px 24px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.03);
 }
 
@@ -255,6 +253,30 @@
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+/* --- Controls Bar --- */
+.tar-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tar-controls-hint {
+  font-size: 12.5px;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.tar-accordion-controls {
+  display: flex;
+  gap: 8px;
 }
 
 /* --- Section Accordion Cards --- */
@@ -341,46 +363,81 @@
 .tar-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 13.5px;
 }
 
 .tar-table th {
   background: #f8fafc;
-  color: #475569;
+  color: #334155;
   font-weight: 700;
   text-align: left;
-  padding: 10px 14px;
+  padding: 12px 14px;
   border-bottom: 2px solid #e2e8f0;
   white-space: nowrap;
 }
 
 .tar-table td {
-  padding: 12px 14px;
+  padding: 14px 14px;
   border-bottom: 1px solid #f1f5f9;
   vertical-align: top;
 }
 
 .tar-table tr:hover td {
-  background: #fcfdfd;
+  background: #f8fafc;
 }
 
-.tar-col-no { width: 45px; font-weight: 700; color: #475569; }
-.tar-col-param { width: 32%; }
-.tar-col-remarks { width: 22%; color: #64748b; font-size: 12px; }
-.tar-col-max { width: 60px; text-align: center; font-weight: 700; color: #1e293b; }
+.tar-col-no { width: 45px; font-weight: 700; color: #475569; text-align: center; }
+.tar-col-param { width: 30%; }
+.tar-col-remarks { width: 22%; }
+.tar-col-max { width: 55px; text-align: center; }
 .tar-col-evidence { width: 30%; }
 .tar-col-claimed { width: 110px; }
-.tar-col-actions { width: 75px; text-align: right; }
+.tar-col-actions { width: 115px; text-align: right; }
 
 .tar-pa-tag {
   display: inline-block;
-  background: #f1f5f9;
-  color: #475569;
+  background: #e2e8f0;
+  color: #1e293b;
   font-size: 11px;
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 4px;
-  margin-right: 6px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.tar-param-text {
   font-weight: 600;
+  color: #0f172a;
+  line-height: 1.45;
+  font-size: 13.5px;
+  white-space: pre-line;
+}
+
+.tar-remarks-box {
+  background: #f8fafc;
+  border-left: 3px solid #94a3b8;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.45;
+  border-radius: 0 4px 4px 0;
+  white-space: pre-line;
+}
+
+.tar-remarks-empty {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.tar-max-badge {
+  display: inline-block;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 12px;
 }
 
 .tar-textarea-evidence {
@@ -389,10 +446,13 @@
   padding: 8px 10px;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
-  font-size: 12.5px;
+  font-size: 13px;
+  line-height: 1.45;
   font-family: inherit;
   resize: vertical;
   box-sizing: border-box;
+  background: #fff;
+  transition: all 0.15s ease;
 }
 
 .tar-textarea-evidence:focus {
@@ -411,6 +471,8 @@
   text-align: right;
   color: #0f172a;
   box-sizing: border-box;
+  background: #fff;
+  transition: all 0.15s ease;
 }
 
 .tar-input-claimed:focus {
@@ -420,38 +482,69 @@
 }
 
 .tar-row-warning {
-  margin-top: 5px;
+  margin-top: 6px;
   font-size: 11px;
   color: #d97706;
   display: flex;
   align-items: center;
   gap: 4px;
+  line-height: 1.3;
 }
 
 .tar-row-error {
-  margin-top: 5px;
+  margin-top: 6px;
   font-size: 11px;
   color: #dc2626;
   display: flex;
   align-items: center;
   gap: 4px;
+  line-height: 1.3;
 }
 
-.tar-file-btn {
-  background: #f8fafc;
+.tar-row-action-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+.tar-action-btn {
+  background: #ffffff;
   border: 1px solid #cbd5e1;
   color: #475569;
   padding: 4px 8px;
   border-radius: 5px;
-  font-size: 11px;
+  font-size: 11.5px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  transition: all 0.12s ease;
 }
 
-.tar-file-btn:hover {
-  background: #e2e8f0;
+.tar-action-btn:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.tar-btn-nil {
+  color: #0f766e;
+  border-color: #99f6e4;
+  background: #f0fdfa;
+}
+.tar-btn-nil:hover {
+  background: #ccfbf1;
+  border-color: #5eead4;
+}
+
+.tar-btn-clear {
+  color: #94a3b8;
+  padding: 2px 6px;
+}
+.tar-btn-clear:hover {
+  color: #ef4444;
+  background: #fee2e2;
+  border-color: #fca5a5;
 }
 
 .tar-attached-files-list {
@@ -500,11 +593,13 @@
   .tar-sticky-summary,
   .no-print,
   .tar-summary-actions,
-  .tar-file-btn,
+  .tar-row-action-btns,
+  .tar-file-chip,
   .tar-file-delete,
   .tar-row-warning,
   .tar-row-error,
   .tar-sec-toggle-icon,
+  .tar-controls-bar,
   #score-toast {
     display: none !important;
   }
@@ -522,7 +617,7 @@
   body {
     background: #ffffff !important;
     color: #000000 !important;
-    font-size: 11pt !important;
+    font-size: 10.5pt !important;
     margin: 0 !important;
     padding: 0 !important;
   }

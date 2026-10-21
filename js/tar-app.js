@@ -1,6 +1,6 @@
 /**
  * Faculty Target Achievement Report (TAR) - UI Application Controller
- * Manages reactive UI rendering, live calculation recalculations,
+ * Manages reactive UI rendering, live calculations,
  * collapsible section states, sample loading, export/import, and printing.
  */
 (function (root, factory) {
@@ -51,6 +51,7 @@
 
     container.innerHTML = buildAppHTML(currentReport, calcResult);
     attachEventListeners();
+    autoResizeAllTextareas();
   }
 
   function buildAppHTML(report, calc) {
@@ -83,7 +84,7 @@
 
             <div class="tar-section-chips" id="tar-summary-chips">
               ${calc.sections.map((sec, idx) => `
-                <div class="tar-chip" onclick="TarApp.scrollToSection('${sec.id}')" title="Click to scroll to ${escapeHTML(sec.title)}">
+                <div class="tar-chip" onclick="TarApp.scrollToSection('${sec.id}')" title="Click to jump to ${escapeHTML(sec.title)}">
                   <span class="chip-name">Sec ${idx + 1}:</span>
                   <span class="chip-score" id="tar-chip-${sec.id}">${sec.formattedSubtotal} / ${sec.max}</span>
                 </div>
@@ -152,6 +153,16 @@
           </div>
         </div>
 
+        <div class="tar-controls-bar no-print">
+          <div class="tar-controls-hint">
+            💡 <strong>Quick tip:</strong> Use the <strong>∅ Nil</strong> button on any row where you have no activities to claim 0 marks instantly. Evidence boxes automatically expand as you type.
+          </div>
+          <div class="tar-accordion-controls">
+            <button type="button" class="tar-btn tar-btn-sm" onclick="TarApp.expandAllSections()">📂 Expand All</button>
+            <button type="button" class="tar-btn tar-btn-sm" onclick="TarApp.collapseAllSections()">📁 Collapse All</button>
+          </div>
+        </div>
+
         <!-- Six Parameter Sections -->
         ${calc.sections.map((sec, sIdx) => `
           <div class="tar-section-card ${collapsedSections[sec.id] ? 'collapsed' : ''}" id="tar-sec-card-${sec.id}">
@@ -175,7 +186,7 @@
                     <tr>
                       <th class="tar-col-no">No.</th>
                       <th class="tar-col-param">Target Parameter</th>
-                      <th class="tar-col-remarks">Remarks (Expected Minimum)</th>
+                      <th class="tar-col-remarks">Remarks (Expected Minimum Guidance)</th>
                       <th class="tar-col-max">Max</th>
                       <th class="tar-col-evidence">Evidence / Details</th>
                       <th class="tar-col-claimed">Marks Claimed</th>
@@ -188,10 +199,14 @@
                         <td class="tar-col-no">${p.no}.</td>
                         <td class="tar-col-param">
                           ${p.code ? `<span class="tar-pa-tag">${escapeHTML(p.code)}</span>` : ''}
-                          <strong>${escapeHTML(p.parameter)}</strong>
+                          <div class="tar-param-text">${escapeHTML(p.parameter)}</div>
                         </td>
-                        <td class="tar-col-remarks">${escapeHTML(p.remarks || '—')}</td>
-                        <td class="tar-col-max">${p.max}</td>
+                        <td class="tar-col-remarks">
+                          ${p.remarks ? `<div class="tar-remarks-box">${escapeHTML(p.remarks)}</div>` : '<span class="tar-remarks-empty">—</span>'}
+                        </td>
+                        <td class="tar-col-max">
+                          <span class="tar-max-badge">${p.max}</span>
+                        </td>
                         <td class="tar-col-evidence">
                           <textarea 
                             class="tar-textarea-evidence" 
@@ -229,9 +244,17 @@
                           </div>
                         </td>
                         <td class="tar-col-actions no-print">
-                          <button type="button" class="tar-file-btn" onclick="TarApp.promptFileAttach(${p.no})" title="Attach evidence document">
-                            📎 File
-                          </button>
+                          <div class="tar-row-action-btns">
+                            <button type="button" class="tar-action-btn tar-btn-attach" onclick="TarApp.promptFileAttach(${p.no})" title="Attach evidence document">
+                              📎 File
+                            </button>
+                            <button type="button" class="tar-action-btn tar-btn-nil" onclick="TarApp.setRowNil(${p.no})" title="Set Evidence as Nil and Claimed Marks to 0">
+                              ∅ Nil
+                            </button>
+                            <button type="button" class="tar-action-btn tar-btn-clear" onclick="TarApp.clearRow(${p.no})" title="Clear this row">
+                              ✕
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     `).join('')}
@@ -281,6 +304,21 @@
     `;
   }
 
+  function autoResizeAllTextareas() {
+    if (typeof document === 'undefined') return;
+    const textareas = document.querySelectorAll('.tar-textarea-evidence');
+    textareas.forEach(t => {
+      autoResizeTextarea(t);
+    });
+  }
+
+  function autoResizeTextarea(el) {
+    if (!el) return;
+    el.style.height = 'auto';
+    const newHeight = Math.max(48, el.scrollHeight);
+    el.style.height = newHeight + 'px';
+  }
+
   function attachEventListeners() {
     ['tar-fac-name', 'tar-fac-empid', 'tar-fac-desig', 'tar-fac-dept'].forEach(id => {
       const el = document.getElementById(id);
@@ -317,6 +355,26 @@
       } else {
         card.classList.remove('collapsed');
       }
+    }
+  }
+
+  function expandAllSections() {
+    if (TarScheme && TarScheme.sections) {
+      TarScheme.sections.forEach(s => {
+        collapsedSections[s.id] = false;
+        const card = document.getElementById(`tar-sec-card-${s.id}`);
+        if (card) card.classList.remove('collapsed');
+      });
+    }
+  }
+
+  function collapseAllSections() {
+    if (TarScheme && TarScheme.sections) {
+      TarScheme.sections.forEach(s => {
+        collapsedSections[s.id] = true;
+        const card = document.getElementById(`tar-sec-card-${s.id}`);
+        if (card) card.classList.add('collapsed');
+      });
     }
   }
 
@@ -357,6 +415,51 @@
       currentReport.entries[paramKey] = { evidence: '', claimed: null, files: [] };
     }
     currentReport.entries[paramKey].evidence = textareaElem.value;
+    autoResizeTextarea(textareaElem);
+    recalculateUI();
+  }
+
+  function setRowNil(paramNo) {
+    if (!currentReport) return;
+    const paramKey = String(paramNo);
+    if (!currentReport.entries[paramKey]) {
+      currentReport.entries[paramKey] = { evidence: '', claimed: null, files: [] };
+    }
+    currentReport.entries[paramKey].evidence = 'Nil';
+    currentReport.entries[paramKey].claimed = 0;
+
+    const evEl = document.getElementById(`tar-ev-${paramNo}`);
+    const clEl = document.getElementById(`tar-claim-${paramNo}`);
+    if (evEl) {
+      evEl.value = 'Nil';
+      autoResizeTextarea(evEl);
+    }
+    if (clEl) {
+      clEl.value = '0';
+    }
+
+    recalculateUI();
+  }
+
+  function clearRow(paramNo) {
+    if (!currentReport) return;
+    const paramKey = String(paramNo);
+    if (!currentReport.entries[paramKey]) {
+      currentReport.entries[paramKey] = { evidence: '', claimed: null, files: [] };
+    }
+    currentReport.entries[paramKey].evidence = '';
+    currentReport.entries[paramKey].claimed = null;
+
+    const evEl = document.getElementById(`tar-ev-${paramNo}`);
+    const clEl = document.getElementById(`tar-claim-${paramNo}`);
+    if (evEl) {
+      evEl.value = '';
+      autoResizeTextarea(evEl);
+    }
+    if (clEl) {
+      clEl.value = '';
+    }
+
     recalculateUI();
   }
 
@@ -546,9 +649,13 @@
     init,
     render,
     toggleSection,
+    expandAllSections,
+    collapseAllSections,
     scrollToSection,
     onClaimChanged,
     onEvidenceChanged,
+    setRowNil,
+    clearRow,
     saveDraft,
     loadSample,
     resetForm,
