@@ -252,10 +252,47 @@
         border: none; border-bottom: 1px solid #000; background: transparent;
       }
       textarea.write-area { border: 1px solid #000; background: transparent; }
+      body.active-module-fpas #module-par-container { display: none !important; }
+      body.active-module-par #module-fpas-container { display: none !important; }
     }
   </style>
+  <link rel="stylesheet" href="css/par.css" />
 </head>
 <body>
+
+<!-- Global Portal Navigation Bar -->
+<nav class="app-global-navbar no-print">
+  <div class="app-global-navbar-inner">
+    <div class="app-brand">
+      <div class="app-brand-icon">🏛️</div>
+      <div class="app-brand-text">
+        <h1>MANAKULA VINAYAGAR INSTITUTE OF TECHNOLOGY</h1>
+        <p>Faculty Performance Appraisal Portal</p>
+      </div>
+    </div>
+    <div class="app-module-switcher">
+      <button id="btn-nav-fpas" class="app-module-btn" onclick="AppModuleSwitcher.switchTo('fpas')" type="button">
+        <span>📋 FPAS Form (700 Marks)</span>
+        <span class="app-module-badge">Existing</span>
+      </button>
+      <button id="btn-nav-par" class="app-module-btn active" onclick="AppModuleSwitcher.switchTo('par')" type="button">
+        <span>📑 PAR Module (FPI System)</span>
+        <span class="app-module-badge">New PAR</span>
+      </button>
+    </div>
+    <div class="app-role-selector">
+      <label for="par-active-role-select">Role:</label>
+      <select id="par-active-role-select">
+        <option value="faculty">Faculty Member</option>
+        <option value="hod">Head of Dept (HOD)</option>
+        <option value="admin">Administrator</option>
+      </select>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ MODULE 1: EXISTING FPAS -->
+<div id="module-fpas-container" style="display:none;">
 
 <div class="no-print">
   <button onclick="window.print()">🖨️ Print / Save as PDF</button>
@@ -1043,6 +1080,198 @@
   </div>
 </div>
 
+</div>
+<!-- ============================================================ END MODULE 1: FPAS -->
+
+<!-- ============================================================ MODULE 2: NEW PAR MODULE -->
+<div id="module-par-container" class="par-module-root">
+  <div class="par-container">
+    
+    <!-- View 1: Dashboard -->
+    <div id="par-view-dashboard" class="par-dashboard-view">
+      <div class="par-dashboard-header">
+        <div class="par-dashboard-title">
+          <h2>Faculty Performance Appraisal Report (PAR) Dashboard</h2>
+          <p>Self-appraisal, research, extension, administration, FPI computation, and HOD verification.</p>
+        </div>
+        <div class="par-dashboard-actions">
+          <button class="par-btn par-btn-primary" onclick="ParApp.createNewReport()">
+            ➕ Create New Appraisal Report
+          </button>
+          <button class="par-btn par-btn-secondary" onclick="ParApp.loadSampleReport()" title="Load exact sample data from MVIT reference document (Suganya - FPI 4.274)">
+            ✨ Load Reference Sample (Suganya - 4.274 FPI)
+          </button>
+          <button class="par-btn par-btn-secondary" onclick="ParApp.openWeightsManagerModal()">
+            ⚖️ Designation Weights
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Statistics Cards -->
+      <div class="par-stats-grid">
+        <div class="par-stat-card">
+          <div>
+            <div class="par-stat-value" id="par-stat-total">0</div>
+            <div class="par-stat-label">Total Reports</div>
+          </div>
+          <div class="par-stat-icon">📁</div>
+        </div>
+        <div class="par-stat-card stat-draft">
+          <div>
+            <div class="par-stat-value" id="par-stat-draft">0</div>
+            <div class="par-stat-label">Draft Reports</div>
+          </div>
+          <div class="par-stat-icon">📝</div>
+        </div>
+        <div class="par-stat-card stat-submitted">
+          <div>
+            <div class="par-stat-value" id="par-stat-submitted">0</div>
+            <div class="par-stat-label">Submitted / Under Review</div>
+          </div>
+          <div class="par-stat-icon">⏳</div>
+        </div>
+        <div class="par-stat-card stat-returned">
+          <div>
+            <div class="par-stat-value" id="par-stat-returned">0</div>
+            <div class="par-stat-label">Returned for Correction</div>
+          </div>
+          <div class="par-stat-icon">↩️</div>
+        </div>
+        <div class="par-stat-card stat-verified">
+          <div>
+            <div class="par-stat-value" id="par-stat-verified">0</div>
+            <div class="par-stat-label">Verified & Completed</div>
+          </div>
+          <div class="par-stat-icon">✅</div>
+        </div>
+      </div>
+
+      <!-- Filter & Search Bar -->
+      <div class="par-filter-bar">
+        <div class="par-filter-group">
+          <label for="par-filter-year">Academic Year:</label>
+          <select id="par-filter-year" class="par-filter-select" onchange="ParApp.onFilterChange()">
+            <option value="all">All Years</option>
+            <option value="2024-25" selected>2024-25</option>
+            <option value="2025-26">2025-26</option>
+            <option value="2023-24">2023-24</option>
+          </select>
+        </div>
+        <div class="par-filter-group">
+          <label for="par-filter-status">Status:</label>
+          <select id="par-filter-status" class="par-filter-select" onchange="ParApp.onFilterChange()">
+            <option value="all">All Statuses</option>
+            <option value="Draft">Draft</option>
+            <option value="Submitted for Verification">Submitted</option>
+            <option value="Returned for Correction">Returned for Correction</option>
+            <option value="Resubmitted">Resubmitted</option>
+            <option value="Verified">Verified</option>
+          </select>
+        </div>
+        <div class="par-filter-group" style="flex:1;">
+          <input type="text" id="par-filter-search" class="par-filter-input par-search-input" placeholder="Search by Faculty name, Employee ID, Designation, Department..." oninput="ParApp.onFilterChange()">
+        </div>
+      </div>
+
+      <!-- Reports Table Card -->
+      <div class="par-table-card">
+        <table class="par-data-table">
+          <thead>
+            <tr>
+              <th style="width:140px;">Report ID</th>
+              <th>Faculty Name</th>
+              <th>Designation</th>
+              <th>Department</th>
+              <th style="width:100px;">Year</th>
+              <th style="width:90px;">FPI Score</th>
+              <th style="width:140px;">Status</th>
+              <th style="width:200px; text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="par-reports-table-body">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- View 2: Report Editor -->
+    <div id="par-view-editor" class="par-editor-view" style="display:none;">
+      <div class="par-editor-header">
+        <div class="par-editor-meta">
+          <h3 id="par-editor-title">Appraisal Report</h3>
+          <div class="par-editor-meta-info" id="par-editor-subtitle">Report metadata</div>
+        </div>
+        <div class="par-editor-toolbar">
+          <span id="par-editor-status-badge" class="par-badge par-badge-draft">Draft</span>
+          <button class="par-btn par-btn-secondary" onclick="ParApp.switchView('dashboard')">
+            ← Back to Dashboard
+          </button>
+          <button class="par-btn par-btn-primary" onclick="ParApp.saveDraft()">
+            💾 Save Draft
+          </button>
+          <button class="par-btn par-btn-secondary" onclick="ParApp.printReport(ParApp.state && ParApp.state.currentReport ? ParApp.state.currentReport.id : '')">
+            🖨️ PDF Preview
+          </button>
+        </div>
+      </div>
+
+      <!-- Stepper Navigation -->
+      <div class="par-stepper">
+        <button class="par-step-btn active" onclick="ParApp.setStep(1)" type="button">
+          <span class="par-step-num">Step 1</span>
+          <span class="par-step-label">👤 Faculty Info</span>
+        </button>
+        <button class="par-step-btn" onclick="ParApp.setStep(2)" type="button">
+          <span class="par-step-num">Step 2</span>
+          <span class="par-step-label">📚 Academic (I 1.0)</span>
+        </button>
+        <button class="par-step-btn" onclick="ParApp.setStep(3)" type="button">
+          <span class="par-step-num">Step 3</span>
+          <span class="par-step-label">🔬 Research (I 2.0)</span>
+        </button>
+        <button class="par-step-btn" onclick="ParApp.setStep(4)" type="button">
+          <span class="par-step-num">Step 4</span>
+          <span class="par-step-label">🤝 Extension (I 3.0)</span>
+        </button>
+        <button class="par-step-btn" onclick="ParApp.setStep(5)" type="button">
+          <span class="par-step-num">Step 5</span>
+          <span class="par-step-label">🏛️ Administration (I 4.0)</span>
+        </button>
+        <button class="par-step-btn" onclick="ParApp.setStep(6)" type="button">
+          <span class="par-step-num">Step 6</span>
+          <span class="par-step-label">📊 FPI Computation</span>
+        </button>
+        <button class="par-step-btn" onclick="ParApp.setStep(7)" type="button">
+          <span class="par-step-num">Step 7</span>
+          <span class="par-step-label">📝 Additional & Declaration</span>
+        </button>
+        <button class="par-step-btn" onclick="ParApp.setStep(8)" type="button">
+          <span class="par-step-num">Step 8</span>
+          <span class="par-step-label">✍️ HOD Verification</span>
+        </button>
+      </div>
+
+      <!-- Step Content Area -->
+      <div id="par-step-content">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+
+    <!-- View 3: Official Printable Document -->
+    <div id="par-view-printable" class="par-printable-view" style="display:none;">
+      <div id="par-printable-content">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal Container -->
+<div id="par-modal-container"></div>
+<!-- ============================================================ END MODULE 2: PAR -->
+
 <script>
   let toastTimeout;
   function showScoreToast(max) {
@@ -1181,6 +1410,18 @@
     calcGrandTotal();
     alert('Scores calculated and filled in Part E!');
   }
+</script>
+
+<!-- Load PAR Module Scripts -->
+<script src="js/par-calc.js"></script>
+<script src="js/par-storage.js"></script>
+<script src="js/par-app.js"></script>
+<script src="js/module-switcher.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.ParApp) ParApp.init();
+    if (window.AppModuleSwitcher) AppModuleSwitcher.initSwitcher();
+  });
 </script>
 
 </body>
